@@ -2,14 +2,19 @@ import discord
 import traceback
 import sys
 import os
+
+from utilities import ucursed
 from discord.ext import commands, tasks
 from itertools import cycle
 
-# bot variables
-bot = commands.Bot(command_prefix = 'U-')
-semester = 'Primavera 2020 | U-Help'
-status = cycle([semester + 'Salvando el semestre ʅʕ•ᴥ•ʔʃ', semester + 'Usando mascarilla ʕ º ᴥ ºʔ', semester + '#LoDamosVuelta ʕง•ᴥ•ʔง'])
-initial_extensions = ['cogs.tests', 'cogs.status', 'cogs.help', 'cogs.trivial', 'cogs.subscription']
+# bot prefix
+bot = commands.Bot(command_prefix = 'u ')
+
+# bot status
+status = cycle([ucursed.SEMESTER])
+
+# cogs
+initial_extensions = ['cogs.tests', 'cogs.status', 'cogs.help']
 
 # cogs loading
 if __name__ == '__main__':
@@ -26,23 +31,10 @@ async def on_ready():
     change_status.start()
     print('U-Cursed ready for deployment.')
 
-# add server to coursesData
-@bot.event
-async def on_guild_join(guild):
-    server_id = str(guild.id)
-    cm.addServerData(server_id)
-
-# delete server from coursesData
-@bot.event
-async def on_guild_remove(guild):
-    server_id = str(guild.id)
-    cm.removeServerData(server_id)   
-
-# loops bot status each hour
+# loops bot status each hour (useless atm)
 @tasks.loop(hours = 1)
 async def change_status():
     await bot.change_presence(activity=discord.Game(next(status)))
 
-# replace with your token
-# bot.run(TOKEN)
+# bot.run(YOUR_TOKEN)
 bot.run(os.environ['token'])

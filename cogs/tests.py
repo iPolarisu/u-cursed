@@ -1,5 +1,5 @@
 import discord
-from courses import coursembed as ce
+from utilities import embed as ce
 from discord.ext import commands, tasks
 
 class Tests(commands.Cog):

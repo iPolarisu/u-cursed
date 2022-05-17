@@ -1,5 +1,5 @@
 import requests
-import ucursed
+from utilities import ucursed
 from bs4 import BeautifulSoup
 
 # gives history url of given code and section 
@@ -19,8 +19,8 @@ def notificationData(urlCurso):
     codeCurso = codeCurso.split(' ',1)                      # info list
 
     # obtaining code and curso from list
-    code = codeCurso[0]                                     # code curso
-    curso = codeCurso[1][:-16]                              # name curso
+    code = codeCurso[0]                                   # code curso
+    curso = codeCurso[1]                                  # name curso
     
     # data from last post
     postList = soup.find('ul', class_ = 'objetos c_0')      # list of posts

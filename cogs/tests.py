@@ -9,7 +9,7 @@ class Tests(commands.Cog):
     # test for last post
     @commands.command()
     @commands.guild_only()
-    async def Test(self, ctx, code, section):
+    async def test(self, ctx, code, section):
         try:
             embed = ce.notificationEmbed(code, section)
             await ctx.send(embed = embed)

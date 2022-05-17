@@ -1,21 +1,10 @@
 import requests
+import ucursed
 from bs4 import BeautifulSoup
-
-# icons for each cargo 
-profeCoo = 'https://i.ibb.co/PMRdfH1/profesor-coordinador.png'
-profe = 'https://i.ibb.co/g9Xjh0K/profesor-de-catedra.png'
-profeAux = 'https://i.ibb.co/12VG4yH/profesor-auxiliar.png'
-ayudante = 'https://i.ibb.co/wwxmTYn/ayudante.png'
-estudiante = 'https://i.ibb.co/94XLmVn/alumno.png'
-cargos = {'Profesor Coordinador' : profeCoo, 'Profesor de Cátedra' : profe, 'Profesor Auxiliar' : profeAux, 'Ayudante' : ayudante, 'Estudiante' : estudiante}
-
-# assigns each cargo to an icon
-def iconCargo(cargo):
-        return cargos[cargo]
 
 # gives history url of given code and section 
 def urlCurso(code, section):
-        return f'https://www.u-cursos.cl/ingenieria/2020/2/{code}/{section}/historial/'
+        return f'https://www.u-cursos.cl/ingenieria/2022/1/{code}/{section}/historial/'
 
 # scrapes urlCurso and returns info from last post
 def notificationData(urlCurso):
@@ -56,13 +45,13 @@ def notificationData(urlCurso):
     
     # data from h2
     h2 = post.h2
-    name = h2.get_text()[8:-5]                  # poster name 
+    name = h2.get_text()[8:-5]                              # op name 
     
         # from img 2
-    if h2.find('img', class_ = 'cargo') != None:            # check if poster has cargo
+    if h2.find('img', class_ = 'cargo') != None:            # check if op has cargo
         img2 = h2.img
         cargo = img2['title']
-        cargo = iconCargo(cargo)                            # cargo                       
+        cargo = ucursed.CARGOS[cargo]                       # cargo                       
     else:
         cargo = None                                        # no cargo
     

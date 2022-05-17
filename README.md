@@ -11,7 +11,6 @@ on given courses.
 
 ### Dependencies
 
-* Windows 10
 * Python 3.8 and above
 * PIL, BeautifulSoup and Discord.
 
@@ -21,10 +20,6 @@ Polarisu
 
 ## Version History
 
-* 0.2
-    * Various bug fixes and optimizations
-* 0.1
-    * Initial Release
 
 ## License
 

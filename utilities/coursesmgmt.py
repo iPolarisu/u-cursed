@@ -1,5 +1,5 @@
 import json
-from courses import coursembed as ce
+from utilities import embed as ce
 
 # reads active courses
 def load_coursesData():

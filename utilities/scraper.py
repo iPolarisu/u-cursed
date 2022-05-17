@@ -1,5 +1,5 @@
 import requests
-import ucursed
+from utilities import ucursed
 from bs4 import BeautifulSoup
 
 # gives history url of given code and section 

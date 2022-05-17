@@ -33,6 +33,6 @@ def notificationEmbed(code, section):
                 cargo = data[6]
                 name = data[7]
                 embed = notification(title, url, curso, code, tipo, icon, cargo, name)
-                return (embed, curso, title)
+                return embed
         except:
                 return False

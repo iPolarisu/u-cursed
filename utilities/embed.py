@@ -1,7 +1,7 @@
 import discord
 from utilities import scraper as sc
 
-EMBED_COLOR = discord.Colour.red
+EMBED_COLOR = 0xff0000
 
 # creates an embed with info from post
 def notification(title, url, curso, code, tipo, icon, cargo, name):
@@ -23,8 +23,7 @@ def notification(title, url, curso, code, tipo, icon, cargo, name):
 def notificationEmbed(code, section):
         try:
                 urlCursoData = sc.urlCurso(code, section)                     
-                data = sc.notificationData(urlCursoData)
-                print(data)   
+                data = sc.notificationData(urlCursoData)  
                 title = data[0]                                         
                 url = data[1]
                 curso = data[2]

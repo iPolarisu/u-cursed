@@ -3,12 +3,12 @@ import traceback
 import sys
 import os
 
-from utilities import ucursed
+from utilities.constants import ucursed
 from discord.ext import commands, tasks
 from itertools import cycle
 
 # bot prefix
-bot = commands.Bot(command_prefix = 'u ')
+bot = commands.Bot(command_prefix = 'u-')
 
 # bot status
 status = cycle([ucursed.SEMESTER])

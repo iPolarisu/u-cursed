@@ -1,5 +1,6 @@
 import discord
-from utilities import embed as ce
+from utilities.embed import embed as ce
+from utilities.constants.error import NO_COURSE
 from discord.ext import commands, tasks
 
 class Tests(commands.Cog):
@@ -11,10 +12,11 @@ class Tests(commands.Cog):
     @commands.guild_only()
     async def test(self, ctx, code, section):
         try:
+            code = code.capitalize()
             embed = ce.notificationEmbed(code, section)
             await ctx.send(embed = embed)
         except:
-            await ctx.send(content = 'No se ha encontrado información del curso, ejecuta U-Help para más detalles')
+            await ctx.send(content = NO_COURSE)
 
 # cog loaded
 def setup(bot):

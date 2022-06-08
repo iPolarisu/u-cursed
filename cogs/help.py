@@ -1,12 +1,6 @@
 import discord
+from utilities.constants import ucursed
 from discord.ext import commands, tasks
-
-# images
-helpIcon = 'https://i.ibb.co/dKsjvF5/questionmark.png'
-footerIcon = 'https://i.ibb.co/FmRwzfz/integrante.png'
-
-# text
-footerText = 'by Polaris | Primavera 2020 | U-Help'
 
 class Help(commands.Cog):
     def __init__(self, bot, *args, **kwargs):
@@ -16,12 +10,12 @@ class Help(commands.Cog):
     # bot usage explanation
     @commands.command()
     @commands.guild_only()
-    async def Help(self, ctx):
+    async def help(self, ctx):
         author = ctx.author
         embed = discord.Embed(title = 'Helperino', color = discord.Colour.red())
-        embed.set_image(url = helpIcon)
+        #embed.set_image(url = helpIcon)
         embed.add_field(name = 'U-Cursed', value = 'Hola', inline = False)
-        embed.set_footer(icon_url = footerIcon, text = footerText)
+        embed.set_footer(icon_url = ucursed.FOOTER_ICON, text = ucursed.SEMESTER)
         await author.send(embed = embed)
         await ctx.send(content = f'Revisa tus DMs {author.mention}')
 

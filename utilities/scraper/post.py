@@ -17,6 +17,9 @@ def postData(urlHist):
     page = requests.get(urlHist, headers = headers)
     # parsed page
     soup = BeautifulSoup(page.content, 'html.parser')
+
+    print(urlHist)
+
     
     # code and curso from url
     codeCurso = soup.find('h2').get_text()

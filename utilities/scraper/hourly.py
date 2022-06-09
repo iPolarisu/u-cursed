@@ -17,6 +17,8 @@ def notificationData(urlCurso, requested_week):
     # parsed page
     soup = BeautifulSoup(page.content, 'html.parser')
 
+    print(urlCurso)
+
     # get name of course
     course_name = soup.find('div', {'class' : 'cont'}).find('span').contents[0]
     

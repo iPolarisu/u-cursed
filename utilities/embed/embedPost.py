@@ -4,7 +4,7 @@ from utilities.scraper.post import urlHist, postData
 EMBED_COLOR = 0xff0000
 
 # create post embed given notification info
-def embed(title, url, curso, code, tipo, icon, cargo, name):
+def embedPostGen(title, url, curso, code, tipo, icon, cargo, name):
         embed = discord.Embed(title = title, color = EMBED_COLOR)
         
         if url != None:
@@ -34,7 +34,7 @@ def notificationEmbed(code, section):
         icon = data[5]
         cargo = data[6]
         name = data[7]
-        embed = embed(title, url, curso, code, tipo, icon, cargo, name)
+        embed = embedPostGen(title, url, curso, code, tipo, icon, cargo, name)
         return embed
         #except:
                 #return False

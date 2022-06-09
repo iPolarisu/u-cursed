@@ -1,5 +1,5 @@
 import discord
-from utilities.embed import embedPost as ep
+from utilities.embed import embedPost
 from utilities.constants.error import NO_COURSE
 from discord.ext import commands, tasks
 
@@ -13,7 +13,7 @@ class Tests(commands.Cog):
     async def test(self, ctx, code, section):
         #try:
         code = code.upper()
-        embed = ep.notificationEmbed(code, section)
+        embed = embedPost.notificationEmbed(code, section)
         await ctx.send(embed = embed)
         #except:
             #await ctx.send(content = NO_COURSE)

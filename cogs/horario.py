@@ -1,5 +1,5 @@
 import discord
-from utilities.embed import hourlyEmbed
+from utilities.embed import embedHourly
 from utilities.constants.error import NO_HOURLY
 from utilities.constants.weeks import WEEK
 from discord.ext import commands, tasks
@@ -15,7 +15,7 @@ class Horario(commands.Cog):
         #try:
         code = code.upper()
         week = WEEK[week]
-        embed = hourlyEmbed.notificationEmbed(code, section, week)
+        embed = embedHourly.notificationEmbed(code, section, week)
         await ctx.send(embed = embed)
         #except:
             #await ctx.send(content = NO_HOURLY)

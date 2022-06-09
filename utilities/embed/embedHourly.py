@@ -4,7 +4,7 @@ from utilities.scraper.hourly import urlHourly, notificationData
 EMBED_COLOR = 0xff0000
 
 # create post embed given notification info
-def embed(course_name, week, days_data):
+def hourlyEmbedGen(course_name, week, days_data):
         embed = discord.Embed(title = course_name, description = week ,color = EMBED_COLOR)
         
         for day in days_data:
@@ -31,7 +31,7 @@ def notificationEmbed(code, section, week):
         course_name = data[0]
         week = data[1]
         days_data = data[2]
-        embed = embed(course_name, week, days_data)
+        embed = hourlyEmbedGen(course_name, week, days_data)
         return embed
         #except:
          #       return False

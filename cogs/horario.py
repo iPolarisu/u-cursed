@@ -12,13 +12,13 @@ class Horario(commands.Cog):
     @commands.command()
     @commands.guild_only()
     async def horario(self, ctx, code, section, week='act'):
-        try:
-            code = code.capitalize()
-            week = WEEK[week]
-            embed = hourlyEmbed.notificationEmbed(code, section, week)
-            await ctx.send(embed = embed)
-        except:
-            await ctx.send(content = NO_HOURLY)
+        #try:
+        code = code.capitalize()
+        week = WEEK[week]
+        embed = hourlyEmbed.notificationEmbed(code, section, week)
+        await ctx.send(embed = embed)
+        #except:
+            #await ctx.send(content = NO_HOURLY)
 
 # cog loaded
 def setup(bot):

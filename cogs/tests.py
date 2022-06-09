@@ -11,12 +11,12 @@ class Tests(commands.Cog):
     @commands.command()
     @commands.guild_only()
     async def test(self, ctx, code, section):
-        try:
-            code = code.capitalize()
-            embed = ep.notificationEmbed(code, section)
-            await ctx.send(embed = embed)
-        except:
-            await ctx.send(content = NO_COURSE)
+        #try:
+        code = code.capitalize()
+        embed = ep.notificationEmbed(code, section)
+        await ctx.send(embed = embed)
+        #except:
+            #await ctx.send(content = NO_COURSE)
 
 # cog loaded
 def setup(bot):

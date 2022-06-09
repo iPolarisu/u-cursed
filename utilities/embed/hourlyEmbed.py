@@ -24,10 +24,10 @@ def embed(course_name, week, days_data):
         return embed
 
 # embed of last post given code and section
-def notificationEmbed(code, section):
+def notificationEmbed(code, section, week):
         try:
                 urlHistData = hourly.urlHist(code, section)
-                data = hourly.notificationData(urlHistData)
+                data = hourly.notificationData(urlHistData, week)
                 course_name = data[0]
                 week = data[1]
                 days_data = data[2]

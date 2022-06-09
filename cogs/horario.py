@@ -15,7 +15,6 @@ class Horario(commands.Cog):
         try:
             code = code.capitalize()
             week = WEEK[week]
-            print(week)
             embed = hourlyEmbed.notificationEmbed(code, section, week)
             await ctx.send(embed = embed)
         except:

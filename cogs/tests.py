@@ -12,7 +12,7 @@ class Tests(commands.Cog):
     @commands.guild_only()
     async def test(self, ctx, code, section):
         #try:
-        code = code.capitalize()
+        code = code.upper()
         embed = ep.notificationEmbed(code, section)
         await ctx.send(embed = embed)
         #except:

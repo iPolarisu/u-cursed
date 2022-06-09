@@ -13,7 +13,7 @@ class Horario(commands.Cog):
     @commands.guild_only()
     async def horario(self, ctx, code, section, week='act'):
         #try:
-        code = code.capitalize()
+        code = code.upper()
         week = WEEK[week]
         embed = hourlyEmbed.notificationEmbed(code, section, week)
         await ctx.send(embed = embed)

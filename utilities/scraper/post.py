@@ -3,18 +3,18 @@ from utilities.constants import cargos
 from bs4 import BeautifulSoup
 
 # gives history url of given code and section 
-def urlCurso(code, section):
+def urlHist(code, section):
         return f'https://www.u-cursos.cl/ingenieria/2022/1/{code}/{section}/historial/'
 
 # scrapes urlCurso and returns info from last post
-def notificationData(urlCurso):
+def postData(urlHist):
     
     # setup for BeautifulSoup
     userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:80.0) Gecko/20100101 Firefox/80.0'
     # define user-agent
     headers = {'User-Agent': userAgent}
     # requesting page
-    page = requests.get(urlCurso, headers = headers)
+    page = requests.get(urlHist, headers = headers)
     # parsed page
     soup = BeautifulSoup(page.content, 'html.parser')
     

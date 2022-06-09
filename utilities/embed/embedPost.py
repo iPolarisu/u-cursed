@@ -23,18 +23,18 @@ def embed(title, url, curso, code, tipo, icon, cargo, name):
 
 # embed of last post given code and section
 def notificationEmbed(code, section):
-        try:
-                urlHistData = post.urlHist(code, section)                     
-                data = post.postData(urlHistData)  
-                title = data[0]                                         
-                url = data[1]
-                curso = data[2]
-                code = data[3]
-                tipo = data[4]
-                icon = data[5]
-                cargo = data[6]
-                name = data[7]
-                embed = embed(title, url, curso, code, tipo, icon, cargo, name)
-                return embed
-        except:
-                return False
+        #try:
+        urlHistData = post.urlHist(code, section)                     
+        data = post.postData(urlHistData)  
+        title = data[0]                                         
+        url = data[1]
+        curso = data[2]
+        code = data[3]
+        tipo = data[4]
+        icon = data[5]
+        cargo = data[6]
+        name = data[7]
+        embed = embed(title, url, curso, code, tipo, icon, cargo, name)
+        return embed
+        #except:
+                #return False

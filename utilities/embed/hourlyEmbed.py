@@ -1,5 +1,5 @@
 import discord
-from utilities.scraper import hourly
+from utilities.scraper.hourly import urlHourly, notificationData
 
 EMBED_COLOR = 0xff0000
 
@@ -26,8 +26,8 @@ def embed(course_name, week, days_data):
 # embed of last post given code and section
 def notificationEmbed(code, section, week):
         #try:
-        urlHistData = hourly.urlHist(code, section)
-        data = hourly.notificationData(urlHistData, week)
+        urlHistData = urlHourly(code, section)
+        data = notificationData(urlHistData, week)
         course_name = data[0]
         week = data[1]
         days_data = data[2]

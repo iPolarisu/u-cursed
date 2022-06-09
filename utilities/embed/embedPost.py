@@ -1,5 +1,5 @@
 import discord
-from utilities.scraper import post
+from utilities.scraper.post import urlHist, postData
 
 EMBED_COLOR = 0xff0000
 
@@ -24,8 +24,8 @@ def embed(title, url, curso, code, tipo, icon, cargo, name):
 # embed of last post given code and section
 def notificationEmbed(code, section):
         #try:
-        urlHistData = post.urlHist(code, section)                     
-        data = post.postData(urlHistData)  
+        urlHistData = urlHist(code, section)                     
+        data = postData(urlHistData)  
         title = data[0]                                         
         url = data[1]
         curso = data[2]

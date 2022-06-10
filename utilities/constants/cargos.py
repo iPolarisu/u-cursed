@@ -6,9 +6,11 @@ AUX = 'https://i.ibb.co/12VG4yH/profesor-auxiliar.png'
 AYU = 'https://i.ibb.co/wwxmTYn/ayudante.png'
 EST = 'https://i.ibb.co/94XLmVn/alumno.png'
 
-# cargo dictionary
-CARGOS = {'Profesor Coordinador' : COO, 
-'Profesor de Cátedra' : CAT, 
-'Profesor Auxiliar' : AUX, 
-'Ayudante' : AYU, 
-'Estudiante' : EST}
+# maps u-cursos reference of each cargo to an external image host
+CARGOS = {
+    'Profesor Coordinador' : COO, 
+    'Profesor de Cátedra' : CAT, 
+    'Profesor Auxiliar' : AUX, 
+    'Ayudante' : AYU, 
+    'Estudiante' : EST
+}

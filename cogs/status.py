@@ -1,22 +1,23 @@
 import discord
-from utilities.constants import ucursed
+from utilities.embed import embedStatus
+from utilities.constants.error import NO_STATUS
 from discord.ext import commands, tasks
 
 class Status(commands.Cog):
     def __init__(self, bot, *args, **kwargs):
         self.bot = bot
     
-    # gives current status of bot
+    # embeds current status of bot
     @commands.command()
     @commands.guild_only()
     async def status(self, ctx):
-        embed = discord.Embed(title = 'Current Status', color = discord.Colour.red())
-        embed.set_thumbnail(url = ucursed.BOT_ICON)
-        embed.add_field(name = 'Version', value = 'N/A', inline = True)
-        embed.add_field(name = 'Ping', value = f'{round(self.bot.latency*1000)}ms', inline = True)
-        embed.add_field(name = 'Guilds', value = f'{len(self.bot.guilds)}', inline = True)
-        embed.set_footer(icon_url = ucursed.FOOTER_ICON, text = ucursed.SEMESTER)
-        await ctx.send(embed = embed)
+        try:
+            ping = f'{round(self.bot.latency*1000)}ms'
+            guilds = f'{len(self.bot.guilds)}'
+            embed = embedStatus.embedStatusGen(ping, guilds)
+            await ctx.send(embed = embed)
+        except:
+            await ctx.send(content = NO_STATUS)
 
 # cog loaded
 def setup(bot):

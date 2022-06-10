@@ -1,23 +1,21 @@
 import requests
 from bs4 import BeautifulSoup
 
-# gives history url of given code and section 
+# returns course's schedule url
 def urlHourly(code, section):
         return f'https://www.u-cursos.cl/ingenieria/2022/1/{code}/{section}/horario_curso/'
 
-# scrapes urlCurso and returns info from last post
-def notificationData(urlCurso, requested_week):
+# scrapes course's schedule for the requested week
+def notificationData(urlHourly, requested_week):
     
     # setup for BeautifulSoup
     userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:80.0) Gecko/20100101 Firefox/80.0'
     # define user-agent
     headers = {'User-Agent': userAgent}
     # requesting page
-    page = requests.get(urlCurso, headers = headers)
+    page = requests.get(urlHourly, headers = headers)
     # parsed page
     soup = BeautifulSoup(page.content, 'html.parser')
-
-    print(urlCurso)
 
     # get name of course
     course_name = soup.find('div', {'class' : 'cont'}).find('span').contents[0]
@@ -29,8 +27,8 @@ def notificationData(urlCurso, requested_week):
     if requested_week != 0:
         weeks = schedule.find('ul', {'class' : 'paginas'}).findAll('a')
         week = weeks[requested_week]['href']
-        urlCurso += week
-        return notificationData(urlCurso, 0)
+        urlHourly += week
+        return notificationData(urlHourly, 0)
 
     # requested week's date
     this_week = schedule.find('h1').contents[0]

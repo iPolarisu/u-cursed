@@ -1,5 +1,5 @@
 import discord
-from utilities.constants import ucursed
+from utilities.embed import embedHelp
 from discord.ext import commands, tasks
 
 class Help(commands.Cog):
@@ -12,10 +12,7 @@ class Help(commands.Cog):
     @commands.guild_only()
     async def help(self, ctx):
         author = ctx.author
-        embed = discord.Embed(title = 'Helperino', color = discord.Colour.red())
-        #embed.set_image(url = helpIcon)
-        embed.add_field(name = 'U-Cursed', value = 'Hola', inline = False)
-        embed.set_footer(icon_url = ucursed.FOOTER_ICON, text = ucursed.SEMESTER)
+        embed = embedHelp.embedHelpGen()
         await author.send(embed = embed)
         await ctx.send(content = f'Revisa tus DMs {author.mention}')
 

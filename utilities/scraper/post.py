@@ -2,11 +2,11 @@ import requests
 from utilities.constants import cargos
 from bs4 import BeautifulSoup
 
-# gives history url of given code and section 
+# returns course's history url
 def urlHist(code, section):
         return f'https://www.u-cursos.cl/ingenieria/2022/1/{code}/{section}/historial/'
 
-# scrapes urlCurso and returns info from last post
+# scrapes course's history for the requested post
 def postData(urlHist):
     
     # setup for BeautifulSoup
@@ -18,9 +18,6 @@ def postData(urlHist):
     # parsed page
     soup = BeautifulSoup(page.content, 'html.parser')
 
-    print(urlHist)
-
-    
     # code and curso from url
     codeCurso = soup.find('h2').get_text()
     # info list
@@ -46,7 +43,7 @@ def postData(urlHist):
     a = h1.a
 
     # check if post has url
-    if a != None:
+    if a:
         url = a['href']
         title = a.get_text()
     else:
@@ -59,7 +56,7 @@ def postData(urlHist):
     name = h2.get_text()[8:-5]
 
     # from img 2
-    if h2.find('img', class_ = 'cargo') != None:
+    if h2.find('img', class_ = 'cargo'):
         img2 = h2.img
         cargo = img2['title']
         cargo = cargos.CARGOS[cargo]

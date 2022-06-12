@@ -1,12 +1,14 @@
 import requests
 from utilities.constants import cargos
+from utilities.constants.ucursed import YEAR, SEASON
 from bs4 import BeautifulSoup
 
 # returns course's history url
 def urlHist(code, section):
-        return f'https://www.u-cursos.cl/ingenieria/2022/1/{code}/{section}/historial/'
+        return f'https://www.u-cursos.cl/ingenieria/{YEAR}/{SEASON}/{code}/{section}/historial/'
 
 # scrapes course's history for the requested post
+# TO DO: Adapt so scraper is able to select a finite number of posts (not just one)
 def postData(urlHist):
     
     # setup for BeautifulSoup

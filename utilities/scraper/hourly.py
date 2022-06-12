@@ -1,9 +1,10 @@
 import requests
+from utilities.constants.ucursed import YEAR, SEASON
 from bs4 import BeautifulSoup
 
 # returns course's schedule url
 def urlHourly(code, section):
-        return f'https://www.u-cursos.cl/ingenieria/2022/1/{code}/{section}/horario_curso/'
+        return f'https://www.u-cursos.cl/ingenieria/{YEAR}/{SEASON}/{code}/{section}/horario_curso/'
 
 # scrapes course's schedule for the requested week
 def notificationData(urlHourly, requested_week):

@@ -8,6 +8,7 @@ class Post(commands.Cog):
         self.bot = bot
 
     # test for last post
+    # TO DO: receive number of posts that user wants to see MAX 5
     @commands.command()
     @commands.guild_only()
     async def post(self, ctx, code, section):

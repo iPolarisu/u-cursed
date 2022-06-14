@@ -36,7 +36,7 @@ def embedInfo(course_name, department_name, url, course_info_fields, course_info
 def notificationEmbed(code):
        # try:
         urlInfoData = urlInfo(code)
-        data = notificationData(urlInfoData)
+        data = notificationData(urlInfoData, code)
         course_name = data[0]
         department_name = data[1]
         url = data[2]

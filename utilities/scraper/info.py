@@ -35,19 +35,19 @@ def notificationData(urlCurso, course_id):
     # course name h2 
     course_name = courses.find('h2', {'id' : course_id}).contents[0]
 
-    # remove line breaks and styling
+    # remove line breaks and styling from course name
     course_name = course_name.replace('\n', '').replace('\t', '')
 
-    # course legend dl leyenda cMA1001
+    # course legend (info fields)
     course_legend = courses.find('dl', {'class' : f'leyenda c{course_id}'})
 
-    # course info
+    # course info field and value pairs
     course_info_values = course_legend.find_all('dd')
     course_info_fields = course_legend.find_all('dt')
 
     url = None
 
-    # assign url if available and pop element
+    # assign url if available and pop related element
     if course_info_fields[0].contents[0] == 'Programa':
         url =  course_info_values[0].find('a')['href']
         course_info_fields.pop(0)

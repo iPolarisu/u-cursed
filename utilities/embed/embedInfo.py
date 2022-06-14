@@ -34,16 +34,16 @@ def embedInfo(course_name, department_name, url, course_info_fields, course_info
 
 # embed of last post given code and section
 def notificationEmbed(code):
-        try:
-                urlInfoData = urlInfo(code)
-                data = notificationData(urlInfoData)
-                course_name = data[0]
-                department_name = data[1]
-                url = data[2]
-                course_info_fields = data[3]
-                course_info_values = data[4]
-                sections_info = data[5]
-                embed = embedInfo(course_name, department_name, url, course_info_fields, course_info_values, sections_info)
-                return embed
-        except:
-                return False
+       # try:
+        urlInfoData = urlInfo(code)
+        data = notificationData(urlInfoData)
+        course_name = data[0]
+        department_name = data[1]
+        url = data[2]
+        course_info_fields = data[3]
+        course_info_values = data[4]
+        sections_info = data[5]
+        embed = embedInfo(course_name, department_name, url, course_info_fields, course_info_values, sections_info)
+        return embed
+        #except:
+         #       return False

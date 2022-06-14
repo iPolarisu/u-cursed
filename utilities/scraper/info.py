@@ -15,6 +15,7 @@ def urlInfo(course_id):
 # scraps urlInfo and returns info from course
 def notificationData(urlCurso, course_id):
     
+    print(urlCurso)
     # setup for BeautifulSoup
     userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:80.0) Gecko/20100101 Firefox/80.0'
     # define user-agent

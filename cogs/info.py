@@ -11,11 +11,11 @@ class Info(commands.Cog):
     @commands.command()
     @commands.guild_only()
     async def info(self, ctx, code):
-        try:
-            embed = embedInfo.notificationEmbed(code)
-            await ctx.send(embed = embed)
-        except:
-            await ctx.send(content = NO_STATUS)
+        #try:
+        embed = embedInfo.notificationEmbed(code)
+        await ctx.send(embed = embed)
+        #except:
+         #   await ctx.send(content = NO_STATUS)
 
 # cog loaded
 def setup(bot):

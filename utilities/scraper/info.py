@@ -55,8 +55,8 @@ def notificationData(urlCurso, course_id):
     course_info_len = len(course_info_fields)
     # iterate over course info and get content from each field/value
     for i in range(course_info_len):
-        course_info_fields[0] = course_info_fields[0].contents[0]
-        course_info_values[0] = course_info_values[0].contents[0]
+        course_info_fields[i] = course_info_fields[i].contents[0]
+        course_info_values[i] = course_info_values[i].contents[0]
 
     # get all sections from given course id
     sections_table = courses.find('table', {'class' : f'cursos c{course_id}'}).find('tbody')

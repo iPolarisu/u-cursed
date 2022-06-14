@@ -14,7 +14,7 @@ bot = commands.Bot(command_prefix = 'u ')
 status = cycle([ucursed.SEMESTER])
 
 # cogs
-initial_extensions = ['cogs.post', 'cogs.status', 'cogs.help', 'cogs.horario']
+initial_extensions = ['cogs.post', 'cogs.status', 'cogs.help', 'cogs.horario', 'cogs.info']
 
 # cogs loading
 if __name__ == '__main__':

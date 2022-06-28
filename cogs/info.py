@@ -1,6 +1,6 @@
 import discord
 from utilities.embed import embedInfo
-from utilities.constants.error import NO_STATUS
+from utilities.constants.error import NO_COURSE
 from discord.ext import commands, tasks
 
 class Info(commands.Cog):
@@ -12,10 +12,11 @@ class Info(commands.Cog):
     @commands.guild_only()
     async def info(self, ctx, code):
         try:
+            code = code.upper()
             embed = embedInfo.notificationEmbed(code)
             await ctx.send(embed = embed)
         except:
-            await ctx.send(content = NO_STATUS)
+            await ctx.send(content = NO_COURSE)
 
 # cog loaded
 def setup(bot):

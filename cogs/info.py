@@ -1,24 +1,24 @@
 import discord
-from utilities.embed import embed as ce
+from utilities.embed import embedInfo
 from utilities.constants.error import NO_COURSE
 from discord.ext import commands, tasks
 
-class Tests(commands.Cog):
+class Info(commands.Cog):
     def __init__(self, bot, *args, **kwargs):
         self.bot = bot
-
-    # test for last post
+    
+    # embeds current status of bot
     @commands.command()
     @commands.guild_only()
-    async def test(self, ctx, code, section):
+    async def info(self, ctx, code):
         try:
-            code = code.capitalize()
-            embed = ce.notificationEmbed(code, section)
+            code = code.upper()
+            embed = embedInfo.notificationEmbed(code)
             await ctx.send(embed = embed)
         except:
             await ctx.send(content = NO_COURSE)
 
 # cog loaded
 def setup(bot):
-    bot.add_cog(Tests(bot))
-    print('Tests is loaded.')
+    bot.add_cog(Info(bot))
+    print('Info is loaded.')

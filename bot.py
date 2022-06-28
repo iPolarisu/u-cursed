@@ -8,13 +8,13 @@ from discord.ext import commands, tasks
 from itertools import cycle
 
 # bot prefix
-bot = commands.Bot(command_prefix = 'u-')
+bot = commands.Bot(command_prefix = 'u ')
 
 # bot status
 status = cycle([ucursed.SEMESTER])
 
 # cogs
-initial_extensions = ['cogs.tests', 'cogs.status', 'cogs.help']
+initial_extensions = ['cogs.post', 'cogs.status', 'cogs.help', 'cogs.horario', 'cogs.info']
 
 # cogs loading
 if __name__ == '__main__':

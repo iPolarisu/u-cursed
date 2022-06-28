@@ -68,3 +68,7 @@ DEPARTMENTS = {
     'BT' : BT,
     'IQ' : IQ
 }
+
+# TO DO: Add icon for each department
+# FCFM Icon
+FCFM_ICON = 'https://wikibello.wiki/images/7/71/Fcfm_logo.jpg'

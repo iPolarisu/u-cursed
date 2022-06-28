@@ -1,6 +1,7 @@
 import discord
 from utilities.scraper.info import urlInfo, notificationData
-from utilities.constants.ucursed import EMBED_COLOR, SEMESTER
+from utilities.constants.departments import FCFM_ICON
+from utilities.constants.ucursed import EMBED_COLOR, SEMESTER, FOOTER_ICON
 
 # create post embed given notification info
 def embedInfo(course_name, department_name, url, course_info_fields, course_info_values, sections_info):
@@ -26,9 +27,9 @@ def embedInfo(course_name, department_name, url, course_info_fields, course_info
         
         embed.add_field(name = 'Secciones', value = sections, inline = False)
         
-        # embed.set_thumbnail(url = SCHEDULE_ICON)
+        embed.set_thumbnail(url = FCFM_ICON)
 
-        embed.set_footer(text = SEMESTER)
+        embed.set_footer(icon_url = FOOTER_ICON, text = SEMESTER)
 
         return embed
 

@@ -1,6 +1,6 @@
 import discord
 from utilities.scraper.hourly import urlHourly, notificationData
-from utilities.constants.ucursed import EMBED_COLOR
+from utilities.constants.ucursed import EMBED_COLOR, FOOTER_ICON
 from utilities.constants.hourly import SCHEDULE_ICON
 
 # create post embed given notification info
@@ -20,7 +20,7 @@ def embedHourlyGen(course_name, code, section, week, days_data):
                 embed.add_field(name = day_name, value = class_info, inline = False)
         
         embed.set_thumbnail(url = SCHEDULE_ICON)
-        embed.set_footer(text = f'{code}-{section}')
+        embed.set_footer(icon_url = FOOTER_ICON, text = f'{code}-{section}')
 
         return embed
 

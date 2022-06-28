@@ -24,7 +24,9 @@ Gets you general info about the bot and how to use it to your discord DMs.
 
 #### u status
 
-Information about the bot ping, guilds and version.
+Information about the bot: ping, guilds and version.
+
+![u status example](https://i.ibb.co/YQLsjXC/0ustatus.png)
 
 #### u post
 
@@ -42,7 +44,7 @@ This embeds the course's section schedule for the current, previous or next week
 
 ![u horario example](https://i.ibb.co/j5rgBKt/0uhorario.png)
 
-### u info
+#### u info
 
 This embeds general course information, such as credits, requirements and the program if available. The syntax is as follows:
 
@@ -52,18 +54,26 @@ This embeds general course information, such as credits, requirements and the pr
 
 ## Self-Hosting
 
-First o
+First of all you need to create a virtual python evironment or pip install all the dependencies. You might need to check which python version works fine with discord.py. Then clone this repository.
 
 ### Dependencies
 
-* Python 3.8 and above
-* PIL, BeautifulSoup and Discord.
+* Python 3
+* BeautifulSoup
+* Discord
+
+### Bot Token
+
+You need to get your own discord bot token at discord's developer portal and replace it in the bot.py file:
+
+        # bot.run(YOUR_TOKEN)
+        bot.run(os.environ['token'])
+
+Invite the bot you created to your server and run bot.py, you should be good to go.
 
 ## Authors
 
 Polarisu
-
-## Version History
 
 ## License
 

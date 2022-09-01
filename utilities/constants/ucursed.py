@@ -4,8 +4,8 @@ VERSION = '0.1'
 
 # SEMESTER OPTIONS
 YEAR = '2022'
-SEASON = '1'
-SEMESTER = 'Otoño 2022 | U-Help'
+SEASON = '2'
+SEMESTER = ' Primavera 2022 | U-Help'
 
 # EMBED OPTIONS
 EMBED_COLOR = 0xff0000
